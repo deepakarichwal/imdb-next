@@ -5,7 +5,7 @@ import DarkModeSwitch from "./DarkModeSwitch";
 
 export default function Header() {
   return (
-    <div className="flex items-center justify-between p-3 border-b border-b-slate-300 dark:border-b-slate-800 max-w-6xl m-auto">
+    <div className="flex items-center justify-between px-3 py-5 max-w-6xl m-auto">
       <div className="flex gap-4">
         <MenuItem title="home" address="/" Icon={HiMiniHome} />
         <MenuItem
