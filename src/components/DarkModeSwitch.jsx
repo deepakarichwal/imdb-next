@@ -8,20 +8,20 @@ export default function DarkModeSwitch() {
   const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const currentTheme = theme === "system" ? systemTheme : theme;
-  const style = "text-xl hover:text-amber-500 cursor-pointer";
+  const iconStyle = "text-xl hover:text-amber-500 cursor-pointer ";
 
   useEffect(function () {
     setMounted(true);
   }, []);
 
   return (
-    <>
+    <div>
       {mounted &&
         (currentTheme === "dark" ? (
-          <HiSun className={style} onClick={() => setTheme("light")} />
+          <HiSun className={iconStyle} onClick={() => setTheme("light")} />
         ) : (
-          <HiMoon className={style} onClick={() => setTheme("dark")} />
+          <HiMoon className={iconStyle} onClick={() => setTheme("dark")} />
         ))}
-    </>
+    </div>
   );
 }
