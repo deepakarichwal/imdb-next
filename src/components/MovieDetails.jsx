@@ -12,7 +12,7 @@ export default function MovieDetails({ movie }) {
   }
 
   return (
-    <div className="flex justify-center mt-16 px-4">
+    <div className="flex justify-center py-16 px-4">
       <div className="flex flex-col sm:gap-8 items-center  md:flex-row md:max-w-4xl ">
         <Image
           className="object-cover w-full rounded-lg  md:h-auto md:w-80 "
