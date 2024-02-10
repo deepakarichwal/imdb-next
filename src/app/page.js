@@ -1,4 +1,6 @@
 import MoviesList from "@/components/MoviesList";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
 
@@ -37,7 +39,9 @@ export default async function Home({ searchParams }) {
 
   return (
     <div>
-      <MoviesList movies={result} />
+      <Suspense fallback={<Loading />}>
+        <MoviesList movies={result} />
+      </Suspense>
     </div>
   );
 }

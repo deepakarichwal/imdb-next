@@ -1,4 +1,6 @@
+import Loading from "@/app/loading";
 import MovieDetails from "@/components/MovieDetails";
+import { Suspense } from "react";
 
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
 
@@ -9,5 +11,9 @@ export default async function Movie({ params }) {
 
   const data = await res.json();
 
-  return <MovieDetails movie={data} />;
+  return (
+    <Suspense fallback={<Loading />}>
+      <MovieDetails movie={data} />;
+    </Suspense>
+  );
 }

@@ -1,4 +1,6 @@
+import Loading from "@/app/loading";
 import MoviesList from "@/components/MoviesList";
+import { Suspense } from "react";
 
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
 
@@ -16,7 +18,11 @@ export default async function Search({ params }) {
           No results found with the ({params.searchTerm}) keyword.
         </h1>
       ) : (
-        result && <MoviesList movies={result} />
+        result && (
+          <Suspense fallback={<Loading />}>
+            <MoviesList movies={result} />
+          </Suspense>
+        )
       )}
     </div>
   );
