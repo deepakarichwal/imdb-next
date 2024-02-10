@@ -2,7 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function MovieDetails({ movie }) {
-  const image = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  let image;
+  if (movie.poster_path || movie.backdrop_path) {
+    image = `https://image.tmdb.org/t/p/w500${
+      movie.poster_path || movie.backdrop_path
+    }`;
+  } else {
+    image = "/image-placeholder.jpg";
+  }
 
   return (
     <div className="flex justify-center mt-16 px-4">
@@ -10,7 +17,7 @@ export default function MovieDetails({ movie }) {
         <Image
           className="object-cover w-full rounded-lg  md:h-auto md:w-80 "
           src={image}
-          alt={movie.original_title}
+          alt={movie.original_title || movie.title}
           width={500}
           height={900}
         />

@@ -1,6 +1,4 @@
 import MoviesList from "@/components/MoviesList";
-import next from "next";
-import { revalidatePath } from "next/cache";
 
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
 
@@ -35,10 +33,11 @@ export default async function Home({ searchParams }) {
   }
 
   const data = await res.json();
+  const result = data.results;
 
   return (
     <div>
-      <MoviesList movies={data.results} />
+      <MoviesList movies={result} />
     </div>
   );
 }

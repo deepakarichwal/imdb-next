@@ -4,9 +4,14 @@ import React from "react";
 
 export default function MovieCard({ movie }) {
   const overview = movie.overview.slice(0, 90) + "...";
-  const image = `https://image.tmdb.org/t/p/w500${
-    movie.poster_path || movie.backdrop_path
-  }`;
+  let image;
+  if (movie.poster_path || movie.backdrop_path) {
+    image = `https://image.tmdb.org/t/p/w500${
+      movie.poster_path || movie.backdrop_path
+    }`;
+  } else {
+    image = "/image-placeholder.jpg";
+  }
 
   return (
     <Link href={`/movie/${movie.id}`}>

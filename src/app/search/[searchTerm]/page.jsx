@@ -9,12 +9,11 @@ export default async function Search({ params }) {
 
   const data = await res.json();
   const result = data.results;
-
   return (
     <div>
       {result && result.length === 0 ? (
         <h1 className="text-center mt-6">
-          No result found with the ({params.searchTerm}) keyword.
+          No results found with the ({params.searchTerm}) keyword.
         </h1>
       ) : (
         result && <MoviesList movies={result} />
