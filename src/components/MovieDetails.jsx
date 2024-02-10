@@ -29,7 +29,7 @@ export default function MovieDetails({ movie }) {
             {movie.overview}
           </p>
 
-          <div className="space-x-4">
+          <div className="flex flex-wrap gap-4">
             {movie?.genres?.map((genre) => (
               <span
                 key={genre.id}
