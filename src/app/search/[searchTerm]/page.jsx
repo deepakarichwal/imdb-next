@@ -1,5 +1,4 @@
 import MoviesList from "@/components/MoviesList";
-import React from "react";
 
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
 
@@ -15,7 +14,7 @@ export default async function Search({ params }) {
     <div>
       {result && result.length === 0 ? (
         <h1 className="text-center mt-6">
-          No result found with the "{params.searchTerm}" keyword
+          No result found with the ({params.searchTerm}) keyword.
         </h1>
       ) : (
         result && <MoviesList movies={result} />
